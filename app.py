@@ -2,7 +2,7 @@
 from pymongo import MongoClient
 from datetime import datetime
 
-cluster = MongoClient("YOUR_MONGODB_URI", tls=True, tlsAllowInvalidCertificates=True)
+cluster = MongoClient("mongodb+srv://shannifyme:rD4wldnKDZpxLO2a@cluster0.pc9px01.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 db = cluster["bakery"]
 users = db["users"]
 orders = db["orders"]
@@ -87,6 +87,9 @@ def reply():
     users.update_one({"number": number}, {"$push": {"messages": {"text": text, "date": datetime.now()}}})
     return str(res)
 
+
+if __name__ == "__main__":
+    app.run()
 
 if __name__ == "__main__":
     app.run(port=5000)

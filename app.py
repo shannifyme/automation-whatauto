@@ -17,7 +17,7 @@ def reply():
     res = {"reply": ""}
     user = users.find_one({"number": number})
     if bool(user) == False:
-        res["reply"] += '\n' + ("Hi, thanks for contacting *The Red Velvet*.\nYou can choose from one of the options below: "
+        res["reply"] += '\n' + ("Hi, thanks for contacting *Yingity's shop*.\nYou can choose from one of the options below: "
                     "\n\n*Type*\n\n 1️⃣ To *contact* us \n 2️⃣ To *order* snacks \n 3️⃣ To know our *working hours* \n 4️⃣ "
                     "To get our *address*")
         users.insert_one({"number": number, "status": "main", "messages": []})
@@ -43,7 +43,7 @@ def reply():
 
         elif option == 4:
             res["reply"] += '\n' + (
-                "We have multiple stores across the city. Our main center is at *4/54, New Delhi*")
+                "We have multiple stores across the city. Our main center is at *Sentosa*")
         else:
             res["reply"] += '\n' + ("Please enter a valid response")
     elif user["status"] == "ordering":
